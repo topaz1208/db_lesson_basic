@@ -1,6 +1,6 @@
-mysql -u root -p
-use db_lesson ;
-Q1
+-- mysql -u root -p
+-- use db_lesson ;
+-- Q1
 CREATE TABLE department (
     department_id INT unsigned NOT NULL auto_increment PRIMARY KEY,
     name VARCHAR(20) NOT NULL,
@@ -8,10 +8,10 @@ CREATE TABLE department (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
 
-Q2
+-- Q2
 ALTER TABLE people ADD department_id INT unsigned AFTER email ;
 
-Q3
+-- Q3
 INSERT INTO department(department_id, name, created_at, updated_at)
  VALUES
  ('1','営業', '2025-02-01 12:30:00', '2025-02-02 12:30:00'),
@@ -46,34 +46,35 @@ VALUES
 (16, '昨日の夜ごはんについて', '2024-1-27 19:30:54', '2024-1-29 5:30:54'),
 (17, '先月の献立について', '2024-1-28 20:30:54', '2024-1-30 4:30:54');
 
-Q4
+-- Q4
 UPDATE people SET department_id = '1' WHERE person_id = 1;
 UPDATE people SET department_id = '2' WHERE person_id = 2;
 UPDATE people SET department_id = '3' WHERE person_id = 3;
 UPDATE people SET department_id = '4' WHERE person_id = 4;
 UPDATE people SET department_id = '5' WHERE person_id = 6;
 
-Q5
+-- Q5
 SELECT name, age FROM people WHERE gender = 1 ORDER BY age DESC;
 
-Q6
+-- Q6
 peopleﾃｰﾌﾞﾙから作成日時の昇順で`department_id`ｶﾗﾑの値が1のﾚｺｰﾄﾞの中から`name`, `email`, `age`ｶﾗﾑを取得する。
 
-Q7
+-- Q7
 SELECT name FROM people WHERE (gender = 1 AND age BETWEEN 40 AND 49)
 OR(gender = 2 AND age BETWEEN 20 AND 29) ;
 
-Q8
+-- Q8
 SELECT * FROM people WHERE department_id = 2 ORDER BY age ;
 
-Q9
+-- Q9
 SELECT AVG(age) AS average_age FROM people WHERE department_id = 1 AND gender = 2 ;
 
-Q10
+-- Q10
 SELECT people.person_id, people.name, reports.content
 FROM people INNER JOIN reports ON people.person_id = reports.person_id;
 
-Q11
+-- Q11
 SELECT people.person_id, people.name, reports.content
 FROM people LEFT OUTER JOIN reports ON people.person_id = reports.person_id
 WHERE content IS NULL ;
+
